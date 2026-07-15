@@ -9,3 +9,4 @@ python_docx==1.2.0
 qdrant_client==1.18.0
 SQLAlchemy==2.0.51
 supabase==2.31.0
+uvicorn
