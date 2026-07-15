@@ -1,0 +1,111 @@
+# ===========================
+# Python
+# ===========================
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual Environments
+venv/
+.venv/
+env/
+ENV/
+
+# Environment Variables
+.env
+.env.*
+!.env.example
+
+# Python Build
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Logs
+*.log
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Type Checking
+.mypy_cache/
+.pyre/
+.ruff_cache/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# ===========================
+# Alembic
+# ===========================
+alembic/versions/__pycache__/
+
+# ===========================
+# VS Code
+# ===========================
+.vscode/
+
+# ===========================
+# macOS
+# ===========================
+.DS_Store
+
+# ===========================
+# Windows
+# ===========================
+Thumbs.db
+
+# ===========================
+# Next.js
+# ===========================
+.next/
+out/
+node_modules/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Build
+.vercel/
+
+# TypeScript
+*.tsbuildinfo
+
+# ===========================
+# IDE
+# ===========================
+.idea/
+
+# ===========================
+# Uploaded Files (Local)
+# ===========================
+uploads/
+temp/
+tmp/
+
+# ===========================
+# SQLite
+# ===========================
+*.db
+*.sqlite3
+
+# ===========================
+# Secrets
+# ===========================
+*.pem
+*.key
+*.crt
+service-account.json
+credentials.json
+
+# ===========================
+# Misc
+# ===========================
+coverage/
+.cache/
