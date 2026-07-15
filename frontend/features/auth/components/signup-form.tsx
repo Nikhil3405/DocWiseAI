@@ -17,7 +17,10 @@ import { GoogleButton } from "./google-button";
 import { AuthDivider } from "./auth-divider";
 
 import { authService } from "../services/auth-service";
-import { signupSchema, SignupFormData } from "../schemas/auth-schema";
+import {
+  signupSchema,
+  SignupFormData,
+} from "../schemas/auth-schema";
 
 export function SignupForm() {
   const router = useRouter();
@@ -36,16 +39,21 @@ export function SignupForm() {
     try {
       setLoading(true);
 
-      const { error } = await authService.signUp(values.email, values.password);
+      const { error } = await authService.signUp(
+        values.email,
+        values.password
+      );
 
       if (error) {
         toast.error(error.message);
         return;
       }
 
-      toast.success("Account created! Please verify your email.");
+      toast.success(
+        "Account created! Please verify your email before signing in."
+      );
 
-      router.replace(`/verify-email?email=${encodeURIComponent(values.email)}`);
+      router.replace("/login");
     } catch {
       toast.error("Something went wrong.");
     } finally {
@@ -66,7 +74,10 @@ export function SignupForm() {
       title="Create your account"
       description="Start using DocWiseAI today."
     >
-      <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        className="space-y-5"
+      >
         <div className="space-y-2">
           <Label>Email</Label>
 
@@ -77,7 +88,9 @@ export function SignupForm() {
           />
 
           {errors.email && (
-            <p className="text-sm text-destructive">{errors.email.message}</p>
+            <p className="text-sm text-destructive">
+              {errors.email.message}
+            </p>
           )}
         </div>
 
@@ -93,13 +106,22 @@ export function SignupForm() {
           error={errors.confirmPassword?.message}
         />
 
-        <Button type="submit" className="w-full" disabled={loading}>
-          {loading ? "Creating Account..." : "Create Account"}
+        <Button
+          type="submit"
+          className="w-full"
+          disabled={loading}
+        >
+          {loading
+            ? "Creating Account..."
+            : "Create Account"}
         </Button>
 
         <AuthDivider />
 
-        <GoogleButton onClick={handleGoogleSignup} loading={loading} />
+        <GoogleButton
+          onClick={handleGoogleSignup}
+          loading={loading}
+        />
 
         <p className="text-center text-sm text-muted-foreground">
           Already have an account?{" "}
