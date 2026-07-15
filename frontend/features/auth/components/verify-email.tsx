@@ -1,13 +1,14 @@
 "use client";
 
+import { Suspense } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-import { MailCheck, ArrowLeft } from "lucide-react";
+import { MailCheck, ArrowLeft, Loader2 } from "lucide-react";
 
 import { AuthCard } from "./auth-card";
 import { Button } from "@/components/ui/button";
 
-export function VerifyEmail() {
+function VerifyEmailContent() {
   const searchParams = useSearchParams();
   const email = searchParams.get("email");
 
@@ -62,5 +63,19 @@ export function VerifyEmail() {
         </Link>
       </div>
     </AuthCard>
+  );
+}
+
+export function VerifyEmail() {
+  return (
+    <Suspense
+      fallback={
+        <div className="flex min-h-[400px] items-center justify-center">
+          <Loader2 className="h-8 w-8 animate-spin text-primary" />
+        </div>
+      }
+    >
+      <VerifyEmailContent />
+    </Suspense>
   );
 }
