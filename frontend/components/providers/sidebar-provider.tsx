@@ -10,6 +10,8 @@ import {
 type SidebarContextType = {
   collapsed: boolean;
   toggleSidebar: () => void;
+  mobileOpen: boolean;
+  setMobileOpen: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 const SidebarContext = createContext<SidebarContextType | null>(
@@ -22,7 +24,7 @@ export function SidebarProvider({
   children: ReactNode;
 }) {
   const [collapsed, setCollapsed] = useState(false);
-
+const [mobileOpen, setMobileOpen] = useState(false);
   const toggleSidebar = () =>
     setCollapsed((prev) => !prev);
 
@@ -31,6 +33,8 @@ export function SidebarProvider({
       value={{
         collapsed,
         toggleSidebar,
+        mobileOpen,
+        setMobileOpen,
       }}
     >
       {children}
