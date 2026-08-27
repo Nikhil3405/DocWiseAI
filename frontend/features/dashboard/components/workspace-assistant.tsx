@@ -20,9 +20,14 @@ export function WorkspaceAssistant() {
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({
-      behavior: "smooth",
-    });
+    const timeout = setTimeout(() => {
+      messagesEndRef.current?.scrollIntoView({
+        behavior: "smooth",
+        block: "end",
+      });
+    }, 150);
+
+    return () => clearTimeout(timeout);
   }, [messages]);
 
   async function handleSend(question: string) {
@@ -46,10 +51,7 @@ export function WorkspaceAssistant() {
         citations: response.citations,
       };
 
-      setMessages((prev) => [
-        ...prev,
-        assistantMessage,
-      ]);
+      setMessages((prev) => [...prev, assistantMessage]);
     } catch {
       setMessages((prev) => [
         ...prev,
@@ -63,7 +65,7 @@ export function WorkspaceAssistant() {
   }
 
   return (
-    <section className="flex h-[550px] flex-col overflow-hidden rounded-2xl border">
+    <section className="flex h-137.5 flex-col overflow-hidden rounded-2xl border">
       {/* Header */}
       <div className="border-b p-5">
         <div className="flex items-center gap-3">
@@ -72,9 +74,7 @@ export function WorkspaceAssistant() {
           </div>
 
           <div>
-            <h2 className="font-semibold">
-              Workspace Assistant
-            </h2>
+            <h2 className="font-semibold">Workspace Assistant</h2>
 
             <p className="text-sm text-muted-foreground">
               Ask anything about your documents.
@@ -92,10 +92,7 @@ export function WorkspaceAssistant() {
         ) : (
           <div className="space-y-4">
             {messages.map((message) => (
-              <ChatMessage
-                key={message.id}
-                message={message}
-              />
+              <ChatMessage key={message.id} message={message} />
             ))}
 
             <div ref={messagesEndRef} />
@@ -105,10 +102,7 @@ export function WorkspaceAssistant() {
 
       {/* Input */}
       <div className="border-t p-5">
-        <ChatInput
-          onSend={handleSend}
-          loading={chat.isPending}
-        />
+        <ChatInput onSend={handleSend} loading={chat.isPending} />
 
         {/* <Button
           variant="ghost"

@@ -12,7 +12,7 @@ export function QuickActions() {
 
   return (
     <>
-      <section className="mb-8 rounded-2xl border bg-card p-6">
+      <section className="mb-4 rounded-2xl border bg-card p-6">
         <h2 className="text-xl font-semibold">
           Quick Actions
         </h2>
@@ -36,7 +36,7 @@ export function QuickActions() {
             variant="outline"
             size="lg"
           >
-              <MessageSquare className="mr-2 h-4 w-4" />
+            <MessageSquare className="mr-2 h-4 w-4" />
               AI Chat
           </Button>
             </Link>

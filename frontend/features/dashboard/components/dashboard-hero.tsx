@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 
 export function DashboardHero() {
   return (
-    <section className="flex flex-col gap-6 rounded-3xl border bg-gradient-to-r from-primary/5 via-background to-primary/5 p-8 lg:flex-row lg:items-center lg:justify-between">
+    <section className="flex flex-col gap-6 rounded-3xl border bg-linear-to-r from-primary/5 via-background to-primary/5 p-8 lg:flex-row lg:items-center lg:justify-between">
       <div>
         <h1 className="text-4xl font-bold tracking-tight">
           Welcome back 👋

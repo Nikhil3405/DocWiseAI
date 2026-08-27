@@ -11,10 +11,10 @@ export function Logo({
   return (
     <Link
       href="/"
-      className="flex items-center gap-3"
+      className="flex items-center "
     >
       <Image
-        src="/logo2.svg"
+        src="/logo4.svg"
         alt="DocWiseAI Logo"
         width={60}
         height={60}

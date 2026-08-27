@@ -27,6 +27,7 @@ export function UploadDropzone({ onUploadSuccess }: Props) {
   const uploadMutation = useUpload();
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const queryClient = useQueryClient();
+
   async function handleUpload() {
     if (!selectedFile) return;
 
@@ -45,19 +46,20 @@ export function UploadDropzone({ onUploadSuccess }: Props) {
     try {
       await uploadMutation.mutateAsync(file);
 
-      await queryClient.invalidateQueries({
-        queryKey: ["dashboard"],
-      });
-
-      await queryClient.invalidateQueries({
-        queryKey: ["documents"],
-      });
+      // Close the dialog immediately after upload succeeds
+      setSelectedFile(null);
+      onUploadSuccess?.();
 
       toast.success("Upload started. AI is processing your document.");
 
-      setSelectedFile(null);
+      // Refresh data in the background
+      queryClient.invalidateQueries({
+        queryKey: ["dashboard"],
+      });
 
-      onUploadSuccess?.();
+      queryClient.invalidateQueries({
+        queryKey: ["documents"],
+      });
     } catch {
       toast.error("Upload failed.");
     }

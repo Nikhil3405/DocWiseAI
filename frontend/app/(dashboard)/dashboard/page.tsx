@@ -27,16 +27,15 @@ const user = useUser();
   return (
     <div className="space-y-8">
       <div className="space-y-4">
-        <div className="grid gap-8 lg:grid-cols-2 ">
+        <div className="grid gap-8 ">
           <WelcomeBanner name={user?.user_metadata.full_name ?? "User"} />
          
         </div>
 
-        <div className="grid gap-8 lg:grid-cols-5">
+        <div className="grid gap-4 lg:grid-cols-5">
           <div className="lg:col-span-2">
-          <QuickActions />
-
-            <DashboardStats />
+            <QuickActions />
+            <DashboardStats/>
             <RecentDocumentsCard />
           </div>
 

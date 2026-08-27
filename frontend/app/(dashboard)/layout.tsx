@@ -9,7 +9,7 @@ export default function DashboardLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="flex min-h-screen bg-background">
+    <div className="flex  bg-background">
       <SidebarProvider>
         <div className="flex flex-1 flex-col">
           <DashboardHeader />

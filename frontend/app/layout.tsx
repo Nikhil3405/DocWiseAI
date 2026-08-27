@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   title: "DocWiseAI",
   description: "AI-powered personal document assistant.",
   icons: {
-    icon: "/logo2.svg",
+    icon: "/logo4.svg",
   },
 };
 

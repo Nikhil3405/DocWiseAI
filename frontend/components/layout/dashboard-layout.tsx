@@ -16,7 +16,7 @@ export function DashboardLayouts({ children }: { children: ReactNode }) {
       <main
         className={cn(
           "min-h-screen transition-all duration-300 p-4",
-          collapsed ? "lg:ml-20" : "lg:ml-64",
+          collapsed ? "lg:ml-20" : "lg:ml-58",
         )}
       >
         {children}
